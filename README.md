@@ -39,7 +39,7 @@ Flask API → Docker Image → Amazon ECR → Amazon ECS (Fargate) → Public In
 
 ### Clone the repository
 ```bash
-git clone https://github.com/<your-username>/Flask-Docker_API.git
+git clone https://github.com/Mahsa-ghaem/Flask-Docker_API.git
 cd Flask-Docker_API
 ```
 
@@ -61,10 +61,11 @@ curl http://localhost:5000/employees
 
 # AWS Deployment Steps
 ## 1. Create and Log in to ECR
-'''bash
+```bash
 aws ecr create-repository --repository-name flask-docker-api --region eu-central-1
 aws ecr get-login-password --region eu-central-1 | \
 sudo docker login --username AWS --password-stdin <account_id>.dkr.ecr.eu-central-1.amazonaws.com
+```
 
 
 ## 2. Tag and Push Image
