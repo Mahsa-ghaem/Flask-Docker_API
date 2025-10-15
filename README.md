@@ -33,30 +33,31 @@ Flask API → Docker Image → Amazon ECR → Amazon ECS (Fargate) → Public In
   {"id": 2, "name": "Rusbeh", "role": "AI Engineer"},
   {"id": 3, "name": "Sara", "role": "Software Developer"}
 ]
-
+```
 
 ## Local Setup
 
 ### Clone the repository
-'''bash
+```bash
 git clone https://github.com/<your-username>/Flask-Docker_API.git
 cd Flask-Docker_API
+```
 
 
 ## Build Docker image
-'''bash
+```bash
 sudo docker build -t flask-docker-api:1.0.
-
+```
 
 ## Run the container locally
-'''bash
+```bash
 sudo docker run -d -p 5000:5000 flask-docker-api:1.0
-
+```
 
 ## Test the API locally
-'''bash
+```bash
 curl http://localhost:5000/employees
-
+```
 
 # AWS Deployment Steps
 ## 1. Create and Log in to ECR
@@ -67,10 +68,10 @@ sudo docker login --username AWS --password-stdin <account_id>.dkr.ecr.eu-centra
 
 
 ## 2. Tag and Push Image
-'''bash
+```bash
 sudo docker tag flask-docker-api:1.0 <account_id>.dkr.ecr.eu-central-1.amazonaws.com/flask-docker-api:1.0
 sudo docker push <account_id>.dkr.ecr.eu-central-1.amazonaws.com/flask-docker-api:1.0
-
+```
 
 ## 3. Deploy on ECS Fargate
 - Create ECS Cluster (Networking Only – Fargate.
@@ -80,15 +81,15 @@ sudo docker push <account_id>.dkr.ecr.eu-central-1.amazonaws.com/flask-docker-ap
 
 
 ## 4. Test Deployed API
-'''bash
+```bash
 http://<Public-IP>:5000/employees
-
+```
 
 ## Example Screenshot
 (Optional – include your own)
-'''text
+```text
 /screenshots/ecs_running.png
-
+```
 
 ## Cleanup
 When finished, stop resources to avoid charges:
