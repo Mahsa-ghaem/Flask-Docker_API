@@ -2,7 +2,10 @@
 
 ## Overview
 This project demonstrates how to build and deploy a lightweight Python **Flask REST API** inside a **Docker container**, store the image in **Amazon ECR**, and run it serverlessly using **AWS ECS Fargate**.  
-The API serves a simple employee dataset through REST endpoints.
+The API serves a simple employee dataset through REST endpoints. I built and deployed a Flask REST API that returns a json data: 
+- First, I ran the code locally on my PC. Then, by creating a Dockerfile, I copied my python code and all its dependencies into a Docker image and ran the code in the Docker container. At this stage, I had a Docker image that contains everything needed to run the API. 
+- Afterward, I pushed this image to AWS ECR (Elastic Container Registry), which serves as a storage location for Docker images, so that the image would be available to AWS services. 
+- To run the container in the cloud, I used AWS ECS with the Fargate launch type, which is a serverless container platform that executes the Docker image without managing servers. Once deployed, the service provides a public endpoint, and when I access it, the API returns the JSON data directly from AWS.
 
 ---
 
